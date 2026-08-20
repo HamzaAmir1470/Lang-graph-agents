@@ -1,10 +1,15 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.agents import tool, create_react_agent
-from langchain_community.tools import TavilySearchResults
-from langchain import hub
 import datetime
+from dotenv import load_dotenv
 
-llm = ChatGoogleGenerativeAI(model="gemini-3.5-turbo")
+from langchain import hub
+from langchain.agents import create_react_agent
+from langchain_community.tools import TavilySearchResults
+from langchain_core.tools import tool
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+load_dotenv()
+
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 search_tool = TavilySearchResults(search_depth="basic")
 
